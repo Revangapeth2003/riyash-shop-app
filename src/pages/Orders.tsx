@@ -2,10 +2,10 @@ import { useCart } from "@/contexts/CartContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingBag, Trash2 } from "lucide-react";
+import { ShoppingBag, Trash2, Plus, Minus } from "lucide-react";
 
 const Orders = () => {
-  const { cartItems, removeFromCart, clearCart } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
 
   const retailItems = cartItems.filter((item) => item.type === "retail");
   const wholesaleItems = cartItems.filter((item) => item.type === "wholesale");
@@ -63,20 +63,40 @@ const Orders = () => {
                 <div className="space-y-4">
                   {retailItems.map((item) => (
                     <div key={`${item.id}-retail`} className="flex items-center gap-4 rounded-lg border p-4">
-                      <img src={item.image} alt={item.name} className="h-16 w-16 rounded object-cover" />
+                      <img src={item.image} alt={item.name} className="h-20 w-20 rounded object-cover" />
                       <div className="flex-1">
                         <h3 className="font-semibold">{item.name}</h3>
-                        <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
-                        <p className="text-sm font-semibold text-primary">₹{item.retailPrice} each</p>
+                        <p className="text-xs text-muted-foreground">{item.category}</p>
+                        <p className="mt-1 text-sm font-semibold text-primary">₹{item.retailPrice} each</p>
+                        <div className="mt-2 flex items-center gap-2">
+                          <Button
+                            onClick={() => updateQuantity(item.id, "retail", item.quantity - 1)}
+                            variant="outline"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-12 text-center font-medium">{item.quantity}</span>
+                          <Button
+                            onClick={() => updateQuantity(item.id, "retail", item.quantity + 1)}
+                            variant="outline"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold">₹{item.retailPrice * item.quantity}</p>
+                        <p className="text-lg font-bold">₹{item.retailPrice * item.quantity}</p>
                         <Button
                           onClick={() => removeFromCart(item.id, "retail")}
-                          variant="ghost"
+                          variant="destructive"
                           size="sm"
                           className="mt-2"
                         >
+                          <Trash2 className="mr-1 h-3 w-3" />
                           Remove
                         </Button>
                       </div>
@@ -108,20 +128,40 @@ const Orders = () => {
                 <div className="space-y-4">
                   {wholesaleItems.map((item) => (
                     <div key={`${item.id}-wholesale`} className="flex items-center gap-4 rounded-lg border p-4">
-                      <img src={item.image} alt={item.name} className="h-16 w-16 rounded object-cover" />
+                      <img src={item.image} alt={item.name} className="h-20 w-20 rounded object-cover" />
                       <div className="flex-1">
                         <h3 className="font-semibold">{item.name}</h3>
-                        <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
-                        <p className="text-sm font-semibold text-primary">₹{item.wholesalePrice} each</p>
+                        <p className="text-xs text-muted-foreground">{item.category}</p>
+                        <p className="mt-1 text-sm font-semibold text-primary">₹{item.wholesalePrice} each</p>
+                        <div className="mt-2 flex items-center gap-2">
+                          <Button
+                            onClick={() => updateQuantity(item.id, "wholesale", item.quantity - 1)}
+                            variant="outline"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-12 text-center font-medium">{item.quantity}</span>
+                          <Button
+                            onClick={() => updateQuantity(item.id, "wholesale", item.quantity + 1)}
+                            variant="outline"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold">₹{item.wholesalePrice * item.quantity}</p>
+                        <p className="text-lg font-bold">₹{item.wholesalePrice * item.quantity}</p>
                         <Button
                           onClick={() => removeFromCart(item.id, "wholesale")}
-                          variant="ghost"
+                          variant="destructive"
                           size="sm"
                           className="mt-2"
                         >
+                          <Trash2 className="mr-1 h-3 w-3" />
                           Remove
                         </Button>
                       </div>

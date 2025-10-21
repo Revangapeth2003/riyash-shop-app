@@ -1,5 +1,5 @@
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/data/products";
+import { categories, getProductsByCategory } from "@/data/products";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Shop = () => {
@@ -17,20 +17,36 @@ const Shop = () => {
             <TabsTrigger value="wholesale">Wholesale</TabsTrigger>
           </TabsList>
           
-          <TabsContent value="retail" className="mt-8">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {products.map((product) => (
-                <ProductCard key={`${product.id}-retail`} product={product} type="retail" />
-              ))}
-            </div>
+          <TabsContent value="retail" className="mt-8 space-y-12">
+            {categories.map((category) => {
+              const categoryProducts = getProductsByCategory(category);
+              return (
+                <div key={`${category}-retail`}>
+                  <h2 className="mb-6 text-2xl font-bold text-foreground">{category}</h2>
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {categoryProducts.map((product) => (
+                      <ProductCard key={`${product.id}-retail`} product={product} type="retail" />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </TabsContent>
           
-          <TabsContent value="wholesale" className="mt-8">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {products.map((product) => (
-                <ProductCard key={`${product.id}-wholesale`} product={product} type="wholesale" />
-              ))}
-            </div>
+          <TabsContent value="wholesale" className="mt-8 space-y-12">
+            {categories.map((category) => {
+              const categoryProducts = getProductsByCategory(category);
+              return (
+                <div key={`${category}-wholesale`}>
+                  <h2 className="mb-6 text-2xl font-bold text-foreground">{category}</h2>
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {categoryProducts.map((product) => (
+                      <ProductCard key={`${product.id}-wholesale`} product={product} type="wholesale" />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </TabsContent>
         </Tabs>
       </div>
