@@ -1,7 +1,19 @@
 import { Product } from "@/contexts/CartContext";
-import soapImage from "@/assets/soap.jpg";
-import detergentImage from "@/assets/detergent.jpg";
-import liquidImage from "@/assets/liquid.jpg";
+import premiumSoapImage from "@/assets/premium-soap.jpg";
+import luxurySoapImage from "@/assets/luxury-soap.jpg";
+import herbalSoapImage from "@/assets/herbal-soap.jpg";
+import antibacterialSoapImage from "@/assets/antibacterial-soap.jpg";
+import moisturizingSoapImage from "@/assets/moisturizing-soap.jpg";
+import detergentPowderImage from "@/assets/detergent-powder.jpg";
+import premiumDetergentImage from "@/assets/premium-detergent.jpg";
+import ecoDetergentImage from "@/assets/eco-detergent.jpg";
+import detergent2kgImage from "@/assets/detergent-2kg.jpg";
+import ultraDetergentImage from "@/assets/ultra-detergent.jpg";
+import cleaningLiquidImage from "@/assets/cleaning-liquid.jpg";
+import floorCleanerImage from "@/assets/floor-cleaner.jpg";
+import disinfectantImage from "@/assets/disinfectant.jpg";
+import glassCleanerImage from "@/assets/glass-cleaner.jpg";
+import multipurposeCleanerImage from "@/assets/multipurpose-cleaner.jpg";
 
 export const products: Product[] = [
   // Personal Care - Soaps
@@ -11,7 +23,7 @@ export const products: Product[] = [
     category: "Personal Care",
     retailPrice: 45,
     wholesalePrice: 35,
-    image: soapImage,
+    image: premiumSoapImage,
   },
   {
     id: "2",
@@ -19,7 +31,7 @@ export const products: Product[] = [
     category: "Personal Care",
     retailPrice: 55,
     wholesalePrice: 42,
-    image: soapImage,
+    image: luxurySoapImage,
   },
   {
     id: "3",
@@ -27,7 +39,7 @@ export const products: Product[] = [
     category: "Personal Care",
     retailPrice: 38,
     wholesalePrice: 28,
-    image: soapImage,
+    image: herbalSoapImage,
   },
   {
     id: "4",
@@ -35,7 +47,7 @@ export const products: Product[] = [
     category: "Personal Care",
     retailPrice: 52,
     wholesalePrice: 40,
-    image: soapImage,
+    image: antibacterialSoapImage,
   },
   {
     id: "5",
@@ -43,7 +55,7 @@ export const products: Product[] = [
     category: "Personal Care",
     retailPrice: 48,
     wholesalePrice: 36,
-    image: soapImage,
+    image: moisturizingSoapImage,
   },
   
   // Laundry - Detergents
@@ -53,7 +65,7 @@ export const products: Product[] = [
     category: "Laundry",
     retailPrice: 120,
     wholesalePrice: 95,
-    image: detergentImage,
+    image: detergentPowderImage,
   },
   {
     id: "7",
@@ -61,7 +73,7 @@ export const products: Product[] = [
     category: "Laundry",
     retailPrice: 145,
     wholesalePrice: 115,
-    image: detergentImage,
+    image: premiumDetergentImage,
   },
   {
     id: "8",
@@ -69,7 +81,7 @@ export const products: Product[] = [
     category: "Laundry",
     retailPrice: 135,
     wholesalePrice: 105,
-    image: detergentImage,
+    image: ecoDetergentImage,
   },
   {
     id: "9",
@@ -77,7 +89,7 @@ export const products: Product[] = [
     category: "Laundry",
     retailPrice: 225,
     wholesalePrice: 180,
-    image: detergentImage,
+    image: detergent2kgImage,
   },
   {
     id: "10",
@@ -85,7 +97,7 @@ export const products: Product[] = [
     category: "Laundry",
     retailPrice: 158,
     wholesalePrice: 125,
-    image: detergentImage,
+    image: ultraDetergentImage,
   },
   
   // Household - Liquids
@@ -95,7 +107,7 @@ export const products: Product[] = [
     category: "Household",
     retailPrice: 85,
     wholesalePrice: 70,
-    image: liquidImage,
+    image: cleaningLiquidImage,
   },
   {
     id: "12",
@@ -103,7 +115,7 @@ export const products: Product[] = [
     category: "Household",
     retailPrice: 95,
     wholesalePrice: 75,
-    image: liquidImage,
+    image: floorCleanerImage,
   },
   {
     id: "13",
@@ -111,7 +123,7 @@ export const products: Product[] = [
     category: "Household",
     retailPrice: 110,
     wholesalePrice: 88,
-    image: liquidImage,
+    image: disinfectantImage,
   },
   {
     id: "14",
@@ -119,7 +131,7 @@ export const products: Product[] = [
     category: "Household",
     retailPrice: 78,
     wholesalePrice: 62,
-    image: liquidImage,
+    image: glassCleanerImage,
   },
   {
     id: "15",
@@ -127,7 +139,7 @@ export const products: Product[] = [
     category: "Household",
     retailPrice: 125,
     wholesalePrice: 98,
-    image: liquidImage,
+    image: multipurposeCleanerImage,
   },
 ];
 

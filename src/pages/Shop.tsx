@@ -23,7 +23,7 @@ const Shop = () => {
               return (
                 <div key={`${category}-retail`}>
                   <h2 className="mb-6 text-2xl font-bold text-foreground">{category}</h2>
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  <div className="grid grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4">
                     {categoryProducts.map((product) => (
                       <ProductCard key={`${product.id}-retail`} product={product} type="retail" />
                     ))}
@@ -39,7 +39,7 @@ const Shop = () => {
               return (
                 <div key={`${category}-wholesale`}>
                   <h2 className="mb-6 text-2xl font-bold text-foreground">{category}</h2>
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  <div className="grid grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4">
                     {categoryProducts.map((product) => (
                       <ProductCard key={`${product.id}-wholesale`} product={product} type="wholesale" />
                     ))}
